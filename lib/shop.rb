@@ -35,13 +35,16 @@ class Shop
   end
 
   def increase_quality(item)
-    2.times do
+    i = 1
+    3.times do
       break if maximum_quality?(item) == true
 
       item.quality += 1
       break unless type_backstage_passes?(item)
-
       break unless item.sell_in <= 10
+      break if item.sell_in > 5 && i == 2
+
+      i += 1
     end
   end
 
