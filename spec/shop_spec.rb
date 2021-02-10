@@ -52,6 +52,15 @@ describe Shop do
       end
     end
 
+    context 'normal item, negative sell_in, 1 quality' do
+      let(:inventory) { [Item.new('toy', -20, 1)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'does not decrease quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+    end
+
     context 'brie, normal sell_in, normal quality' do
       let(:inventory) { [Item.new('brie', 20, 30)] }
       let(:shop) { described_class.new(inventory) }
@@ -63,6 +72,15 @@ describe Shop do
       it 'decreases in sell_in' do
         shop.update_quality
         expect(shop.items[0].sell_in).to eq 19
+      end
+    end
+
+    context 'brie, normal sell_in, max quality' do
+      let(:inventory) { [Item.new('brie', 20, 50)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'will not increase quality past 50' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 50
       end
     end
   end

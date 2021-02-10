@@ -23,13 +23,21 @@ class Shop
     item.quality.zero?
   end
 
-  def decrease_quality(item)
-    return if minimum_quality?(item) == true
+  def maximum_quality?(item)
+    item.quality == 50
+  end
 
-    item.sell_in.positive? ? item.quality -= 1 : item.quality -= 2
+  def decrease_quality(item)
+    for i in 1..2 do
+      break if minimum_quality?(item) == true
+      item.quality -= 1
+      break if item.sell_in.positive?
+    end
   end
 
   def increase_quality(item)
+    return if maximum_quality?(item) == true
+
     item.quality += 1
   end
 
