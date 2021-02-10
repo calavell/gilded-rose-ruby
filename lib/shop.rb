@@ -12,7 +12,7 @@ class Shop
 
   def update_quality
     @items.each do |item|
-      decrease_quality(item)
+      adjust_quality(item)
       decrease_sellin(item)
     end
   end
@@ -29,10 +29,17 @@ class Shop
     item.sell_in.positive? ? item.quality -= 1 : item.quality -= 2
   end
 
+  def increase_quality(item)
+    item.quality += 1
+  end
+
   def decrease_sellin(item)
     item.sell_in -= 1
   end
 
+  def adjust_quality(item)
+    item.name == 'brie' ? increase_quality(item) : decrease_quality(item)
+  end
   # def update_quality()
   #   @items.each do |item|
   #     if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"

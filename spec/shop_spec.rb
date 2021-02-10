@@ -51,5 +51,19 @@ describe Shop do
         expect(shop.items[0].sell_in).to eq(-21)
       end
     end
+
+    context 'brie, normal sell_in, normal quality' do
+      let(:inventory) { [Item.new('brie', 20, 30)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 31
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 19
+      end
+    end
   end
 end
