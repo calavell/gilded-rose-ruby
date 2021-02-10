@@ -97,5 +97,33 @@ describe Shop do
         expect(shop.items[0].sell_in).to eq 20
       end
     end
+
+    context 'sulfuras, negative sell_in, maximum quality' do
+      let(:inventory) { [Item.new('sulfuras', -20, 50)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'will not change the quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 50
+      end
+
+      it 'will not change the sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-20)
+      end
+    end
+
+    context 'sulfuras, negative sell_in, minimum quality' do
+      let(:inventory) { [Item.new('sulfuras', -20, 0)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'will not change the quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'will not change the sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-20)
+      end
+    end
   end
 end
