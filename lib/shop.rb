@@ -4,10 +4,14 @@ require_relative './item'
 
 # the below class represents the gilded rose inn shop
 class Shop
-  attr_reader :items
+  MAXIMUM_ITEM_QUALITY = 50
+  MINIMUM_ITEM_QUALITY = 0
+  attr_reader :items, :maximum_item_quality, :minimum_item_quality
 
   def initialize(items)
     @items = items
+    @maximum_item_quality = MAXIMUM_ITEM_QUALITY
+    @minimum_item_quality = MINIMUM_ITEM_QUALITY
   end
 
   def update_quality
@@ -20,11 +24,11 @@ class Shop
   private
 
   def minimum_quality?(item)
-    item.quality.zero?
+    item.quality == self.minimum_item_quality
   end
 
   def maximum_quality?(item)
-    item.quality == 50
+    item.quality == self.maximum_item_quality
   end
 
   def decrease_quality(item)
