@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require_relative './item'
 
+# the below class represents the gilded rose inn shop
 class Shop
-
   attr_reader :items
 
   def initialize(items)
@@ -10,15 +12,25 @@ class Shop
 
   def update_quality
     @items.each do |item|
-      item.sell_in -= 1
-      item.quality -= 1 unless minimum_quality?(item)
+      decrease_quality(item)
+      decrease_sellin(item)
     end
   end
 
   private
 
   def minimum_quality?(item)
-    item.quality == 0
+    item.quality.zero?
+  end
+
+  def decrease_quality(item)
+    return if minimum_quality?(item) == true
+
+    item.sell_in.positive? ? item.quality -= 1 : item.quality -= 2
+  end
+
+  def decrease_sellin(item)
+    item.sell_in -= 1
   end
 
   # def update_quality()

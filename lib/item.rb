@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# below is a class representing items that are stored within the shop
 class Item
   attr_accessor :name, :sell_in, :quality
 
@@ -7,7 +10,7 @@ class Item
     @quality = quality
   end
 
-  def to_s()
+  def to_s
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 end
