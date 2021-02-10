@@ -23,14 +23,6 @@ class Shop
 
   private
 
-  def minimum_quality?(item)
-    item.quality == minimum_item_quality
-  end
-
-  def maximum_quality?(item)
-    item.quality == maximum_item_quality
-  end
-
   def decrease_quality(item)
     return if type_sulfuras?(item)
 
@@ -43,9 +35,18 @@ class Shop
   end
 
   def increase_quality(item)
-    return if maximum_quality?(item) == true
+    2.times do
+      break if maximum_quality?(item) == true
 
-    item.quality += 1
+      item.quality += 1
+      break unless type_backstage_passes?(item)
+
+      break unless item.sell_in <= 10
+    end
+  end
+
+  def adjust_quality(item)
+    type_brie?(item) || type_backstage_passes?(item) ? increase_quality(item) : decrease_quality(item)
   end
 
   def decrease_sellin(item)
@@ -54,8 +55,12 @@ class Shop
     item.sell_in -= 1
   end
 
-  def adjust_quality(item)
-    type_brie?(item) || type_backstage_passes?(item)? increase_quality(item) : decrease_quality(item)
+  def minimum_quality?(item)
+    item.quality == minimum_item_quality
+  end
+
+  def maximum_quality?(item)
+    item.quality == maximum_item_quality
   end
 
   def type_sulfuras?(item)
