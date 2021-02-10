@@ -55,15 +55,19 @@ class Shop
   end
 
   def adjust_quality(item)
-    type_brie?(item) ? increase_quality(item) : decrease_quality(item)
+    type_brie?(item) || type_backstage_passes?(item)? increase_quality(item) : decrease_quality(item)
   end
 
   def type_sulfuras?(item)
-    item.name == 'sulfuras'
+    item.name == 'Sulfuras'
   end
 
   def type_brie?(item)
-    item.name == 'brie'
+    item.name == 'Aged Brie'
+  end
+
+  def type_backstage_passes?(item)
+    item.name == 'Backstage passes'
   end
   # def update_quality()
   #   @items.each do |item|

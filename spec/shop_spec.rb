@@ -5,7 +5,7 @@ require 'item'
 
 describe Shop do
   describe '#update_quality' do
-    context 'inventory 1 normal item, normal conditions' do
+    context 'normal item, normal conditions' do
       let(:inventory) { [Item.new('toy', 20, 10)] }
       let(:shop) { described_class.new(inventory) }
       it 'does not change the name of the items' do
@@ -62,7 +62,7 @@ describe Shop do
     end
 
     context 'brie, normal sell_in, normal quality' do
-      let(:inventory) { [Item.new('brie', 20, 30)] }
+      let(:inventory) { [Item.new('Aged Brie', 20, 30)] }
       let(:shop) { described_class.new(inventory) }
       it 'increases in quality' do
         shop.update_quality
@@ -76,7 +76,7 @@ describe Shop do
     end
 
     context 'brie, normal sell_in, max quality' do
-      let(:inventory) { [Item.new('brie', 20, 50)] }
+      let(:inventory) { [Item.new('Aged Brie', 20, 50)] }
       let(:shop) { described_class.new(inventory) }
       it 'will not increase quality past 50' do
         shop.update_quality
@@ -85,7 +85,7 @@ describe Shop do
     end
 
     context 'sulfuras, normal sell_in, normal quality' do
-      let(:inventory) { [Item.new('sulfuras', 20, 30)] }
+      let(:inventory) { [Item.new('Sulfuras', 20, 30)] }
       let(:shop) { described_class.new(inventory) }
       it 'will not change the quality' do
         shop.update_quality
@@ -99,7 +99,7 @@ describe Shop do
     end
 
     context 'sulfuras, negative sell_in, maximum quality' do
-      let(:inventory) { [Item.new('sulfuras', -20, 50)] }
+      let(:inventory) { [Item.new('Sulfuras', -20, 50)] }
       let(:shop) { described_class.new(inventory) }
       it 'will not change the quality' do
         shop.update_quality
@@ -113,7 +113,7 @@ describe Shop do
     end
 
     context 'sulfuras, negative sell_in, minimum quality' do
-      let(:inventory) { [Item.new('sulfuras', -20, 0)] }
+      let(:inventory) { [Item.new('Sulfuras', -20, 0)] }
       let(:shop) { described_class.new(inventory) }
       it 'will not change the quality' do
         shop.update_quality
@@ -123,6 +123,20 @@ describe Shop do
       it 'will not change the sell_in' do
         shop.update_quality
         expect(shop.items[0].sell_in).to eq(-20)
+      end
+    end
+
+    context 'backstage pass, normal sell_in, normal quality' do
+      let(:inventory) { [Item.new('Backstage passes', 20, 30)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 31
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 19
       end
     end
   end
