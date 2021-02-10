@@ -181,5 +181,19 @@ describe Shop do
         expect(shop.items[0].sell_in).to eq(-1)
       end
     end
+
+    context 'backstage pass, negative sell_in, minimum quality' do
+      let(:inventory) { [Item.new('Backstage passes', -3, 0)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-4)
+      end
+    end
   end
 end

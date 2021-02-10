@@ -81,7 +81,7 @@ class Shop
   end
 
   def backstage_passes_expired?(item)
-    item.sell_in.zero? && type_backstage_passes?(item)
+    item.sell_in <= 0 && type_backstage_passes?(item)
   end
 
   def depreciate_expired_backstage_passes(item)
