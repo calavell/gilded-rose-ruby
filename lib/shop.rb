@@ -35,6 +35,8 @@ class Shop
   end
 
   def increase_quality(item)
+    depreciate_expired_backstage_passes(item) and return if backstage_passes_expired?(item)
+
     i = 1
     3.times do
       break if maximum_quality?(item) == true
@@ -77,6 +79,15 @@ class Shop
   def type_backstage_passes?(item)
     item.name == 'Backstage passes'
   end
+
+  def backstage_passes_expired?(item)
+    item.sell_in.zero? && type_backstage_passes?(item)
+  end
+
+  def depreciate_expired_backstage_passes(item)
+    item.quality = 0 if backstage_passes_expired?(item)
+  end
+
   # def update_quality()
   #   @items.each do |item|
   #     if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
