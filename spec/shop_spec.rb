@@ -195,5 +195,145 @@ describe Shop do
         expect(shop.items[0].sell_in).to eq(-4)
       end
     end
+
+    context 'backstage pass, negative sell_in, minimum quality' do
+      let(:inventory) { [Item.new('Backstage passes', -3, 0)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-4)
+      end
+    end
+
+    context 'conjured, normal sell_in, normal quality' do
+      let(:inventory) { [Item.new('Conjured', 15, 25)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 23
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 14
+      end
+    end
+
+    context 'conjured, normal sell_in, minimum quality' do
+      let(:inventory) { [Item.new('Conjured', 15, 0)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 14
+      end
+    end
+
+    context 'conjured, normal sell_in, 2 quality' do
+      let(:inventory) { [Item.new('Conjured', 15, 2)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 14
+      end
+    end
+
+    context 'conjured, normal sell_in, 1 quality' do
+      let(:inventory) { [Item.new('Conjured', 15, 1)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 14
+      end
+    end
+
+    context 'conjured, negative sell_in, normal quality' do
+      let(:inventory) { [Item.new('Conjured', -15, 34)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 30
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-16)
+      end
+    end
+
+    context 'conjured, negative sell_in, minimum quality' do
+      let(:inventory) { [Item.new('Conjured', -15, 0)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-16)
+      end
+    end
+
+    context 'conjured, negative sell_in, 2 quality' do
+      let(:inventory) { [Item.new('Conjured', -15, 2)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-16)
+      end
+    end
+
+    context 'conjured, negative sell_in, 1 quality' do
+      let(:inventory) { [Item.new('Conjured', -15, 1)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-16)
+      end
+    end
+
+    context 'conjured, negative sell_in, 2 quality' do
+      let(:inventory) { [Item.new('Conjured', -15, 3)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'increases in quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 0
+      end
+
+      it 'decreases in sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq(-16)
+      end
+    end
   end
 end

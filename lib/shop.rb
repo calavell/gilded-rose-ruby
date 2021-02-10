@@ -29,7 +29,7 @@ class Shop
     2.times do
       break if minimum_quality?(item) == true
 
-      item.quality -= 1
+      type_conjured?(item) && item.quality > 1 ? item.quality -= 2 : item.quality -= 1
       break if item.sell_in.positive?
     end
   end
@@ -78,6 +78,10 @@ class Shop
 
   def type_backstage_passes?(item)
     item.name == 'Backstage passes'
+  end
+
+  def type_conjured?(item)
+    item.name == 'Conjured'
   end
 
   def backstage_passes_expired?(item)
