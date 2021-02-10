@@ -24,16 +24,19 @@ class Shop
   private
 
   def minimum_quality?(item)
-    item.quality == self.minimum_item_quality
+    item.quality == minimum_item_quality
   end
 
   def maximum_quality?(item)
-    item.quality == self.maximum_item_quality
+    item.quality == maximum_item_quality
   end
 
   def decrease_quality(item)
-    for i in 1..2 do
+    return if type_sulfuras?(item)
+
+    2.times do
       break if minimum_quality?(item) == true
+
       item.quality -= 1
       break if item.sell_in.positive?
     end
@@ -46,11 +49,21 @@ class Shop
   end
 
   def decrease_sellin(item)
+    return if type_sulfuras?(item)
+
     item.sell_in -= 1
   end
 
   def adjust_quality(item)
-    item.name == 'brie' ? increase_quality(item) : decrease_quality(item)
+    type_brie?(item) ? increase_quality(item) : decrease_quality(item)
+  end
+
+  def type_sulfuras?(item)
+    item.name == 'sulfuras'
+  end
+
+  def type_brie?(item)
+    item.name == 'brie'
   end
   # def update_quality()
   #   @items.each do |item|

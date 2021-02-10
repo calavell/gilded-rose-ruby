@@ -83,5 +83,19 @@ describe Shop do
         expect(shop.items[0].quality).to eq 50
       end
     end
+
+    context 'sulfuras, normal sell_in, normal quality' do
+      let(:inventory) { [Item.new('sulfuras', 20, 30)] }
+      let(:shop) { described_class.new(inventory) }
+      it 'will not change the quality' do
+        shop.update_quality
+        expect(shop.items[0].quality).to eq 30
+      end
+
+      it 'will not change the sell_in' do
+        shop.update_quality
+        expect(shop.items[0].sell_in).to eq 20
+      end
+    end
   end
 end
