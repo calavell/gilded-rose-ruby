@@ -8,7 +8,7 @@ module StandardProcedures
   TRIPLE_INCREMENT_LIMIT = 5
   STANDARD_INCREMENT = 1
   SELL_BY_DATE = 0
-  
+
   def minimum_quality?
     @minimum_quality == @quality
   end
