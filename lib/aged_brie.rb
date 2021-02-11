@@ -6,8 +6,6 @@ require_relative './standard_procedures'
 # the below class represents the brie products
 class AgedBrie < Item
   include StandardProcedures
-  MAXIMUM_QUALITY = 50
-  STANDARD_INCREMENT = 1
 
   def initialize(name, sell_in, quality)
     super

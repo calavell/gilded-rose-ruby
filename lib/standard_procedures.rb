@@ -2,6 +2,13 @@
 
 # this module contains the standard quality and sellin adjustment methods for any new product
 module StandardProcedures
+  MAXIMUM_QUALITY = 50
+  MINIMUM_QUALITY = 0
+  DOUBLE_INCREMENT_LIMIT = 10
+  TRIPLE_INCREMENT_LIMIT = 5
+  STANDARD_INCREMENT = 1
+  SELL_BY_DATE = 0
+  
   def minimum_quality?
     @minimum_quality == @quality
   end

@@ -6,13 +6,9 @@ require_relative './standard_procedures'
 # the below class represents the conjured products
 class Conjured < Item
   include StandardProcedures
-  MAXIMUM_QUALITY = 50
-  STANDARD_INCREMENT = 1
-  MINIMUM_QUALITY = 0
 
   def initialize(name, sell_in, quality)
     super
-    @maximum_quality = MAXIMUM_QUALITY
     @standard_increment = STANDARD_INCREMENT
     @minimum_quality = MINIMUM_QUALITY
   end
