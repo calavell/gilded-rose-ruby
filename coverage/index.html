@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-12T11:16:57+00:00">2021-02-12T11:16:57+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-02-12T11:21:06+00:00">2021-02-12T11:21:06+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  98.31%
+  98.38%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.36
+         2.3
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>236</b> relevant lines,
-    <span class="green"><b>232</b> lines covered</span> and
+    <b>247</b> relevant lines,
+    <span class="green"><b>243</b> lines covered</span> and
     <span class="red"><b>4</b> lines missed. </span>
     (<span class="green">
-  98.31%
+  98.38%
 </span>
 )
   </div>
@@ -172,20 +172,20 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#c7ff99ebea6a6db7d80fd9835b82245d97e3c291" class="src_link" title="spec/conjured_spec.rb">spec/conjured_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">81</td>
-            <td class="cell--number">48</td>
-            <td class="cell--number">48</td>
+            <td class="cell--number">90</td>
+            <td class="cell--number">57</td>
+            <td class="cell--number">57</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.19</td>
+            <td class="cell--number">1.16</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ed86a6f70d8ae4a242819712599a3b32f3c05bd7" class="src_link" title="spec/feature_tests_spec.rb">spec/feature_tests_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">38</td>
-            <td class="cell--number">31</td>
-            <td class="cell--number">31</td>
+            <td class="cell--number">40</td>
+            <td class="cell--number">33</td>
+            <td class="cell--number">33</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -1007,7 +1007,7 @@
 
             
 
-            <code class="ruby">class Conjured &lt; Item</code>
+            <code class="ruby">module Conjured</code>
           </li>
         </div>
       
@@ -3130,8 +3130,8 @@
     
 
     <div class="t-line-summary">
-      <b>48</b> relevant lines.
-      <span class="green"><b>48</b> lines covered</span> and
+      <b>57</b> relevant lines.
+      <span class="green"><b>57</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -3248,7 +3248,7 @@
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, 20, 30) }</code>
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, 20, 30) }</code>
           </li>
         </div>
       
@@ -3270,7 +3270,7 @@
 
             
 
-            <code class="ruby">        conjured.update_item</code>
+            <code class="ruby">        conjured.extend(Conjured)</code>
           </li>
         </div>
       
@@ -3281,18 +3281,18 @@
 
             
 
-            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, 19, 28&#39;</code>
+            <code class="ruby">        conjured.update_item</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="14">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="14">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, 19, 28&#39;</code>
           </li>
         </div>
       
@@ -3303,7 +3303,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -3314,12 +3314,23 @@
 
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="17">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="17">
+          <li class="covered" data-hits="1" data-linenumber="18">
             <span class="hits">1</span>
             
 
@@ -3330,24 +3341,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="18">
+          <li class="covered" data-hits="2" data-linenumber="19">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, 20, 0) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      it &#39;does not decrease quality past zero, sellin decrease by 1&#39; do</code>
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, 20, 0) }</code>
           </li>
         </div>
       
@@ -3358,7 +3358,7 @@
 
             
 
-            <code class="ruby">        conjured.update_item</code>
+            <code class="ruby">      it &#39;does not decrease quality past zero, sellin decrease by 1&#39; do</code>
           </li>
         </div>
       
@@ -3369,29 +3369,29 @@
 
             
 
+            <code class="ruby">        conjured.extend(Conjured)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        conjured.update_item</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="23">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, 19, 0&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="23">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -3402,29 +3402,29 @@
 
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="25">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    context &#39;normal sell_in, 1 quality&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="26">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, 20, 1) }</code>
           </li>
         </div>
       
@@ -3435,18 +3435,18 @@
 
             
 
-            <code class="ruby">      it &#39;decreases in quality by 1&#39; do</code>
+            <code class="ruby">    context &#39;normal sell_in, 1 quality&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="28">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">        conjured.update_item</code>
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, 20, 1) }</code>
           </li>
         </div>
       
@@ -3457,12 +3457,45 @@
 
             
 
+            <code class="ruby">      it &#39;decreases in quality by 1&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="30">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        conjured.extend(Conjured)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        conjured.update_item</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, 19, 0&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="30">
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
@@ -3473,7 +3506,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="never" data-hits="" data-linenumber="34">
             
             
 
@@ -3484,46 +3517,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="33">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    context &#39;negative sell_in, normal quality&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="34">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, -20, 8) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      it &#39;decreases in quality by 4&#39; do</code>
           </li>
         </div>
       
@@ -3534,51 +3534,51 @@
 
             
 
-            <code class="ruby">        conjured.update_item</code>
+            <code class="ruby">    context &#39;negative sell_in, normal quality&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
+          <li class="covered" data-hits="2" data-linenumber="37">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, -20, 8) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="38">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -21, 4&#39;</code>
+            <code class="ruby">      it &#39;decreases in quality by 4&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">        conjured.extend(Conjured)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="40">
-            
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        conjured.update_item</code>
           </li>
         </div>
       
@@ -3589,40 +3589,40 @@
 
             
 
-            <code class="ruby">    context &#39;negative sell_in, minimum quality&#39; do</code>
+            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -21, 4&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="42">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="42">
+            
             
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, -15, 0) }</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="43">
+            
             
 
             
 
-            <code class="ruby">      it &#39;doesnt decrease quality&#39; do</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="44">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="44">
+            
             
 
             
 
-            <code class="ruby">        conjured.update_item</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3633,40 +3633,40 @@
 
             
 
-            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -16, 0&#39;</code>
+            <code class="ruby">    context &#39;negative sell_in, minimum quality&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="46">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">      end</code>
+            
+
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, -15, 0) }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="47">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      it &#39;doesnt decrease quality&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="48">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        conjured.extend(Conjured)</code>
           </li>
         </div>
       
@@ -3677,23 +3677,78 @@
 
             
 
+            <code class="ruby">        conjured.update_item</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="50">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -16, 0&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="51">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="52">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="54">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    context &#39;conjured, negative sell_in, 2 quality&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="50">
+          <li class="covered" data-hits="2" data-linenumber="55">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, -15, 2) }</code>
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, -15, 2) }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="51">
+          <li class="covered" data-hits="1" data-linenumber="56">
             <span class="hits">1</span>
             
 
@@ -3704,79 +3759,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        conjured.update_item</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="53">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -16, 0&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
           <li class="covered" data-hits="1" data-linenumber="57">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    context &#39;negative sell_in, 1 quality&#39; do</code>
+            <code class="ruby">        conjured.extend(Conjured)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="58">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="58">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, -15, 1) }</code>
+            <code class="ruby">        conjured.update_item</code>
           </li>
         </div>
       
@@ -3787,29 +3787,29 @@
 
             
 
-            <code class="ruby">      it &#39;decreases in quality by 1&#39; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="60">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        conjured.update_item</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="61">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -16, 0&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -3820,29 +3820,29 @@
 
             
 
-            <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="63">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="64">
-            
-            
-
-            
-
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="63">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &#39;negative sell_in, 1 quality&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="64">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, -15, 1) }</code>
           </li>
         </div>
       
@@ -3853,18 +3853,18 @@
 
             
 
-            <code class="ruby">    context &#39;negative sell_in, 2 quality&#39; do</code>
+            <code class="ruby">      it &#39;decreases in quality by 1&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="66">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="66">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, -15, 2) }</code>
+            <code class="ruby">        conjured.extend(Conjured)</code>
           </li>
         </div>
       
@@ -3875,7 +3875,7 @@
 
             
 
-            <code class="ruby">      it &#39;decreases in quality by 2&#39; do</code>
+            <code class="ruby">        conjured.update_item</code>
           </li>
         </div>
       
@@ -3886,23 +3886,12 @@
 
             
 
-            <code class="ruby">        conjured.update_item</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="69">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -16, 0&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="70">
+          <li class="never" data-hits="" data-linenumber="69">
             
             
 
@@ -3913,7 +3902,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
+          <li class="never" data-hits="" data-linenumber="70">
             
             
 
@@ -3924,7 +3913,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="72">
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
@@ -3935,24 +3924,35 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="73">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    context &#39;negative sell_in, 3 quality&#39; do</code>
+            <code class="ruby">    context &#39;negative sell_in, 2 quality&#39; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="74">
+          <li class="covered" data-hits="2" data-linenumber="73">
             <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">      let(:conjured) { Conjured.new(&#39;Conjured&#39;, -15, 3) }</code>
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, -15, 2) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="74">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &#39;decreases in quality by 2&#39; do</code>
           </li>
         </div>
       
@@ -3963,7 +3963,7 @@
 
             
 
-            <code class="ruby">      it &#39;decreases in quality by 3&#39; do</code>
+            <code class="ruby">        conjured.extend(Conjured)</code>
           </li>
         </div>
       
@@ -4018,12 +4018,111 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="81">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &#39;negative sell_in, 3 quality&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="82">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      let(:conjured) { Item.new(&#39;Conjured&#39;, -15, 3) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="83">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &#39;decreases in quality by 3&#39; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="84">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        conjured.extend(Conjured)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        conjured.update_item</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(conjured.to_s).to eq &#39;Conjured, -16, 0&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="87">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="89">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="81">
+          <li class="never" data-hits="" data-linenumber="90">
             
             
 
@@ -4052,8 +4151,8 @@
     
 
     <div class="t-line-summary">
-      <b>31</b> relevant lines.
-      <span class="green"><b>31</b> lines covered</span> and
+      <b>33</b> relevant lines.
+      <span class="green"><b>33</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -4148,7 +4247,7 @@
 
             
 
-            <code class="ruby">    conjured = Conjured.new(&#39;Conjured&#39;, 30, 30)</code>
+            <code class="ruby">    conjured = Item.new(&#39;Conjured&#39;, 30, 30)</code>
           </li>
         </div>
       
@@ -4170,7 +4269,7 @@
 
             
 
-            <code class="ruby">    brie.extend(AgedBrie)</code>
+            <code class="ruby">    backstage_pass = Item.new(&#39;Backstage pass&#39;, 14, 43)</code>
           </li>
         </div>
       
@@ -4181,7 +4280,7 @@
 
             
 
-            <code class="ruby">    backstage_pass = Item.new(&#39;Backstage pass&#39;, 14, 43)</code>
+            <code class="ruby">    sulfuras = Sulfuras.new(&#39;Sulfuras&#39;, 5, 35)</code>
           </li>
         </div>
       
@@ -4192,7 +4291,7 @@
 
             
 
-            <code class="ruby">    backstage_pass.extend(BackstagePass)</code>
+            <code class="ruby">    conjured.extend(Conjured)</code>
           </li>
         </div>
       
@@ -4203,7 +4302,7 @@
 
             
 
-            <code class="ruby">    sulfuras = Sulfuras.new(&#39;Sulfuras&#39;, 5, 35)</code>
+            <code class="ruby">    brie.extend(AgedBrie)</code>
           </li>
         </div>
       
@@ -4214,7 +4313,7 @@
 
             
 
-            <code class="ruby">    inventory = [conjured, brie, backstage_pass, sulfuras]</code>
+            <code class="ruby">    backstage_pass.extend(BackstagePass)</code>
           </li>
         </div>
       
@@ -4225,7 +4324,7 @@
 
             
 
-            <code class="ruby">    shop = Shop.new(inventory)</code>
+            <code class="ruby">    inventory = [conjured, brie, backstage_pass, sulfuras]</code>
           </li>
         </div>
       
@@ -4236,7 +4335,7 @@
 
             
 
-            <code class="ruby">    shop.update_quality</code>
+            <code class="ruby">    shop = Shop.new(inventory)</code>
           </li>
         </div>
       
@@ -4247,7 +4346,7 @@
 
             
 
-            <code class="ruby">    expect(shop.items[0].to_s).to eq &#39;Conjured, 29, 28&#39;</code>
+            <code class="ruby">    shop.update_quality</code>
           </li>
         </div>
       
@@ -4258,7 +4357,7 @@
 
             
 
-            <code class="ruby">    expect(shop.items[1].to_s).to eq &#39;Aged Brie, 19, 31&#39;</code>
+            <code class="ruby">    expect(shop.items[0].to_s).to eq &#39;Conjured, 29, 28&#39;</code>
           </li>
         </div>
       
@@ -4269,7 +4368,7 @@
 
             
 
-            <code class="ruby">    expect(shop.items[2].to_s).to eq &#39;Backstage pass, 13, 44&#39;</code>
+            <code class="ruby">    expect(shop.items[1].to_s).to eq &#39;Aged Brie, 19, 31&#39;</code>
           </li>
         </div>
       
@@ -4280,18 +4379,18 @@
 
             
 
-            <code class="ruby">    expect(shop.items[3].to_s).to eq &#39;Sulfuras, 5, 35&#39;</code>
+            <code class="ruby">    expect(shop.items[2].to_s).to eq &#39;Backstage pass, 13, 44&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    expect(shop.items[3].to_s).to eq &#39;Sulfuras, 5, 35&#39;</code>
           </li>
         </div>
       
@@ -4302,18 +4401,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="23">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="23">
+            
             
 
             
 
-            <code class="ruby">  it &#39;updates the quality and sellin for a suite of products woth negative sellins&#39; do</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -4324,7 +4423,7 @@
 
             
 
-            <code class="ruby">    conjured = Conjured.new(&#39;Conjured&#39;, -30, 30)</code>
+            <code class="ruby">  it &#39;updates the quality and sellin for a suite of products woth negative sellins&#39; do</code>
           </li>
         </div>
       
@@ -4335,7 +4434,7 @@
 
             
 
-            <code class="ruby">    brie = Item.new(&#39;Aged Brie&#39;, -20, 30)</code>
+            <code class="ruby">    conjured = Item.new(&#39;Conjured&#39;, -30, 30)</code>
           </li>
         </div>
       
@@ -4346,7 +4445,7 @@
 
             
 
-            <code class="ruby">    brie.extend(AgedBrie)</code>
+            <code class="ruby">    brie = Item.new(&#39;Aged Brie&#39;, -20, 30)</code>
           </li>
         </div>
       
@@ -4368,7 +4467,7 @@
 
             
 
-            <code class="ruby">    backstage_pass.extend(BackstagePass)</code>
+            <code class="ruby">    sulfuras = Sulfuras.new(&#39;Sulfuras&#39;, -5, 35)</code>
           </li>
         </div>
       
@@ -4379,7 +4478,7 @@
 
             
 
-            <code class="ruby">    sulfuras = Sulfuras.new(&#39;Sulfuras&#39;, -5, 35)</code>
+            <code class="ruby">    conjured.extend(Conjured)</code>
           </li>
         </div>
       
@@ -4390,7 +4489,7 @@
 
             
 
-            <code class="ruby">    inventory = [conjured, brie, backstage_pass, sulfuras]</code>
+            <code class="ruby">    brie.extend(AgedBrie)</code>
           </li>
         </div>
       
@@ -4401,7 +4500,7 @@
 
             
 
-            <code class="ruby">    shop = Shop.new(inventory)</code>
+            <code class="ruby">    backstage_pass.extend(BackstagePass)</code>
           </li>
         </div>
       
@@ -4412,7 +4511,7 @@
 
             
 
-            <code class="ruby">    shop.update_quality</code>
+            <code class="ruby">    inventory = [conjured, brie, backstage_pass, sulfuras]</code>
           </li>
         </div>
       
@@ -4423,7 +4522,7 @@
 
             
 
-            <code class="ruby">    expect(shop.items[0].to_s).to eq &#39;Conjured, -31, 26&#39;</code>
+            <code class="ruby">    shop = Shop.new(inventory)</code>
           </li>
         </div>
       
@@ -4434,7 +4533,7 @@
 
             
 
-            <code class="ruby">    expect(shop.items[1].to_s).to eq &#39;Aged Brie, -21, 31&#39;</code>
+            <code class="ruby">    shop.update_quality</code>
           </li>
         </div>
       
@@ -4445,7 +4544,7 @@
 
             
 
-            <code class="ruby">    expect(shop.items[2].to_s).to eq &#39;Backstage pass, -15, 0&#39;</code>
+            <code class="ruby">    expect(shop.items[0].to_s).to eq &#39;Conjured, -31, 26&#39;</code>
           </li>
         </div>
       
@@ -4456,12 +4555,34 @@
 
             
 
+            <code class="ruby">    expect(shop.items[1].to_s).to eq &#39;Aged Brie, -21, 31&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="37">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    expect(shop.items[2].to_s).to eq &#39;Backstage pass, -15, 0&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">    expect(shop.items[3].to_s).to eq &#39;Sulfuras, -5, 35&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="39">
             
             
 
@@ -4472,7 +4593,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 

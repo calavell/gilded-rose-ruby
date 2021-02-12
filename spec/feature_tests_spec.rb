@@ -5,12 +5,13 @@ require 'item'
 
 describe 'Update shop' do
   it 'updates the quality and sellin for a suite of products' do
-    conjured = Conjured.new('Conjured', 30, 30)
+    conjured = Item.new('Conjured', 30, 30)
     brie = Item.new('Aged Brie', 20, 30)
-    brie.extend(AgedBrie)
     backstage_pass = Item.new('Backstage pass', 14, 43)
-    backstage_pass.extend(BackstagePass)
     sulfuras = Sulfuras.new('Sulfuras', 5, 35)
+    conjured.extend(Conjured)
+    brie.extend(AgedBrie)
+    backstage_pass.extend(BackstagePass)
     inventory = [conjured, brie, backstage_pass, sulfuras]
     shop = Shop.new(inventory)
     shop.update_quality
@@ -21,12 +22,13 @@ describe 'Update shop' do
   end
 
   it 'updates the quality and sellin for a suite of products woth negative sellins' do
-    conjured = Conjured.new('Conjured', -30, 30)
+    conjured = Item.new('Conjured', -30, 30)
     brie = Item.new('Aged Brie', -20, 30)
-    brie.extend(AgedBrie)
     backstage_pass = Item.new('Backstage pass', -14, 0)
-    backstage_pass.extend(BackstagePass)
     sulfuras = Sulfuras.new('Sulfuras', -5, 35)
+    conjured.extend(Conjured)
+    brie.extend(AgedBrie)
+    backstage_pass.extend(BackstagePass)
     inventory = [conjured, brie, backstage_pass, sulfuras]
     shop = Shop.new(inventory)
     shop.update_quality

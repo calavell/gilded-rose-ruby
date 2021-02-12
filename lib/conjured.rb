@@ -4,7 +4,7 @@ require_relative './item'
 require_relative './standard_procedures'
 
 # the below class represents the conjured products
-class Conjured < Item
+module Conjured
   include StandardProcedures
 
   private
