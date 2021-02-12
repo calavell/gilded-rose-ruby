@@ -12,9 +12,29 @@ class Shop
 
   def initialize(items)
     @items = items
+    assign_custom_rules_to_items
   end
 
   def update_quality
     @items.each(&:update_item)
+  end
+
+  private
+
+  def assign_custom_rules_to_items
+    @items.each do |item|
+      case item.name
+      when 'Aged Brie'
+        item.extend(AgedBrie)
+      when 'Backstage pass'
+        item.extend(BackstagePass)
+      when 'Sulfuras'
+        item.extend(Sulfuras)
+      when 'Conjured'
+        item.extend(Conjured)
+      else
+        item.extend(StandardProcedures)
+      end
+    end
   end
 end
