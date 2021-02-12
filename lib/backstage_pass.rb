@@ -4,7 +4,7 @@ require_relative './item'
 require_relative './standard_procedures'
 
 # the below class represents the brie products
-class BackstagePass < Item
+module BackstagePass
   include StandardProcedures
 
   DOUBLE_INCREMENT_LIMIT = 10
