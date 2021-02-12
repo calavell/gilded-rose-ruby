@@ -6,7 +6,8 @@ require 'item'
 describe 'Update shop' do
   it 'updates the quality and sellin for a suite of products' do
     conjured = Conjured.new('Conjured', 30, 30)
-    brie = AgedBrie.new('Aged Brie', 20, 30)
+    brie = Item.new('Aged Brie', 20, 30)
+    brie.extend(AgedBrie)
     backstage_pass = BackstagePass.new('Backstage pass', 14, 43)
     sulfuras = Sulfuras.new('Sulfuras', 5, 35)
     inventory = [conjured, brie, backstage_pass, sulfuras]
@@ -20,7 +21,8 @@ describe 'Update shop' do
 
   it 'updates the quality and sellin for a suite of products woth negative sellins' do
     conjured = Conjured.new('Conjured', -30, 30)
-    brie = AgedBrie.new('Aged Brie', -20, 30)
+    brie = Item.new('Aged Brie', -20, 30)
+    brie.extend(AgedBrie)
     backstage_pass = BackstagePass.new('Backstage pass', -14, 0)
     sulfuras = Sulfuras.new('Sulfuras', -5, 35)
     inventory = [conjured, brie, backstage_pass, sulfuras]
