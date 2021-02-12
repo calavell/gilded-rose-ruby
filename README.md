@@ -28,17 +28,19 @@ Feel free to make any changes to the UpdateQuality method and add any new code a
 - There are 4 types of products you can currently supply to the shop, brie, backstage passes, sulfuras, and conjured goods. To begin stocking the shop, you need to first create some products. Each product has a name, a sellin figure, and a quality figure. The name can be any string, the sellin figure can be a positive integer, the quality must be a positive integer 50 or lower.
 - To create product instances
 
-```brie = AgedBrie.new('brie', 10, 20)```
+```brie = Item.new('Aged Brie', 10, 20)```
 
-```pass = BackstagePass.new('pass', 16, 23)```
+```pass = Item.new('Backstage pass', 16, 23)```
 
-```sulfuras = Sulfuras.new('sulfuras', 8, 46)```
+```sulfuras = Item.new('Sulfuras', 8, 46)```
 
-```conjured = Conjured.new('conjured', 43, 30)```
+```conjured = Item.new('Conjured', 43, 30)```
+
+```car = Item.new('Car', 43, 30)```
 
 - To create a shop which has these products in stock:
 
-``` gilded_rose = Shop.new([brie, pass, sulfuras, conjured])```
+``` gilded_rose = Shop.new([brie, pass, sulfuras, conjured, car])```
 
 - To update the stock of the shop, run  ```gilded_rose.update_quality```
 - To verify the result, run ```gilded_rose.items``` and you will see the list of stock with the adjusted quality and sellin values.
@@ -48,6 +50,6 @@ My approach to this challenge was to optimise a strong object oriented design wh
 
 
 ## Code Structure
-The core of the project is based on the shop class and the item class. I initially stuck to those classes and built all of the functionality out within the shop class which would update all of its items' quality and sellin values itself. I then realised that it would be more appropriate for the item class to be responsible for changing its own state. This led me to extracting separate classes for each product type, and them all inheriting the properties of the item class.
+The core of the project is based on the shop class and the item class. I initially stuck to those classes and built all of the functionality out within the shop class which would update all of its items' quality and sellin values itself. I then realised that it would be more appropriate for the item class to be responsible for changing its own state. This led me to extracting modules for each product type, and these modules being applied to specific instances of the item class depending on their name.
 
-As there was a similar flow and certain 'standard' rules, I created a module called 'StandardProcedures' which I then imported into each product class. Using polymorphism, I created specific update_item methods which would act differently for each product class. Each product class is essentially benefiting from dual inheritance here with a Superclass(item) and a mixin module(StandardProcedure).
+As there was a similar flow and certain 'standard' rules, I created a module called 'StandardProcedures' which I then imported into each product module. Using polymorphism, I created specific update_item methods which would act differently for each product.
