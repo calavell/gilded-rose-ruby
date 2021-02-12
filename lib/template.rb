@@ -14,14 +14,14 @@ class SampleProduct < Item
 
   def initialize(name, sell_in, quality)
     super
-    @minimum_quality = MINIMUM_QUALITY
-    @standard_increment = STANDARD_INCREMENT
-    @sell_by_date = SELL_BY_DATE
   end
   # These are the base properties which each new product needs.
-  # You can add more into a new class by defining a new constant in
-  # './stands_procedures.rb'
 
   # If you need to include special methods to override the default ones, you can write them
   # under these lines. Remember to keep any methods private unless they need to be public.
+
+  # To understand the standard methods, when the shop updates its quality, it will call the
+  # update_item method on the product. If you go to './stands_procedures.rb', you can see what
+  #  this method entails. Only add new methods if that flow is not going to work for the new product.
+  # Try to stick to the naming conventions of using update_item, update_quality and update_sellin.
 end

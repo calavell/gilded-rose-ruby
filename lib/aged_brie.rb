@@ -7,15 +7,9 @@ require_relative './standard_procedures'
 class AgedBrie < Item
   include StandardProcedures
 
-  def initialize(name, sell_in, quality)
-    super
-    @maximum_quality = MAXIMUM_QUALITY
-    @standard_increment = STANDARD_INCREMENT
-  end
-
   private
 
   def update_quality
-    @quality += @standard_increment unless maximum_quality?
+    @quality += STANDARD_INCREMENT unless maximum_quality?
   end
 end

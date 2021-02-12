@@ -19,5 +19,3 @@ describe Shop do
     end
   end
 end
-
-# let(:transaction1) { double(Transaction, date: '08/02/2021', credit: 5, debit: nil, balance: 5) }

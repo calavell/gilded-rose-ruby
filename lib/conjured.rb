@@ -7,19 +7,13 @@ require_relative './standard_procedures'
 class Conjured < Item
   include StandardProcedures
 
-  def initialize(name, sell_in, quality)
-    super
-    @standard_increment = STANDARD_INCREMENT
-    @minimum_quality = MINIMUM_QUALITY
-  end
-
   private
 
   def update_quality
     2.times do
       break if minimum_quality?
 
-      @quality > 1 ? @quality -= @standard_increment * 2 : @quality -= @standard_increment
+      @quality -= @quality > 1 ? STANDARD_INCREMENT * 2 : STANDARD_INCREMENT
       break if @sell_in.positive?
     end
   end

@@ -4,28 +4,28 @@
 module StandardProcedures
   MAXIMUM_QUALITY = 50
   MINIMUM_QUALITY = 0
-  DOUBLE_INCREMENT_LIMIT = 10
-  TRIPLE_INCREMENT_LIMIT = 5
+  # DOUBLE_INCREMENT_LIMIT = 10
+  # TRIPLE_INCREMENT_LIMIT = 5
   STANDARD_INCREMENT = 1
   SELL_BY_DATE = 0
 
   def minimum_quality?
-    @minimum_quality == @quality
+    MINIMUM_QUALITY == @quality
   end
 
   def maximum_quality?
-    @maximum_quality == @quality
+    MAXIMUM_QUALITY == @quality
   end
 
   def update_sellin
-    @sell_in -= @standard_increment
+    @sell_in -= STANDARD_INCREMENT
   end
 
   def update_quality
     2.times do
       break if minimum_quality?
 
-      @quality -= @standard_increment
+      @quality -= STANDARD_INCREMENT
       break if @sell_in.positive?
     end
   end

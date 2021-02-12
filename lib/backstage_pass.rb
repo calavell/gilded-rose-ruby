@@ -7,14 +7,8 @@ require_relative './standard_procedures'
 class BackstagePass < Item
   include StandardProcedures
 
-  def initialize(name, sell_in, quality)
-    super
-    @standard_increment = STANDARD_INCREMENT
-    @triple_increment_limit = TRIPLE_INCREMENT_LIMIT
-    @double_increment_limit = DOUBLE_INCREMENT_LIMIT
-    @sell_by_date = SELL_BY_DATE
-    @minimum_quality = MINIMUM_QUALITY
-  end
+  DOUBLE_INCREMENT_LIMIT = 10
+  TRIPLE_INCREMENT_LIMIT = 5
 
   def update_item
     depreciate_quality if expired?
@@ -29,19 +23,19 @@ class BackstagePass < Item
     3.times do
       break if maximum_quality?
 
-      @quality += @standard_increment
-      break if @sell_in > @double_increment_limit
-      break if @sell_in > @triple_increment_limit && i == 2
+      @quality += STANDARD_INCREMENT
+      break if @sell_in > DOUBLE_INCREMENT_LIMIT
+      break if @sell_in > TRIPLE_INCREMENT_LIMIT && i == 2
 
       i += 1
     end
   end
 
   def depreciate_quality
-    @quality = @minimum_quality if expired?
+    @quality = MINIMUM_QUALITY if expired?
   end
 
   def expired?
-    @sell_in <= @sell_by_date
+    @sell_in <= SELL_BY_DATE
   end
 end
