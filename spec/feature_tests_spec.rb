@@ -8,10 +8,11 @@ describe 'Update shop' do
     conjured = Item.new('Conjured', 30, 30)
     brie = Item.new('Aged Brie', 20, 30)
     backstage_pass = Item.new('Backstage pass', 14, 43)
-    sulfuras = Sulfuras.new('Sulfuras', 5, 35)
+    sulfuras = Item.new('Sulfuras', 5, 35)
     conjured.extend(Conjured)
     brie.extend(AgedBrie)
     backstage_pass.extend(BackstagePass)
+    sulfuras.extend(Sulfuras)
     inventory = [conjured, brie, backstage_pass, sulfuras]
     shop = Shop.new(inventory)
     shop.update_quality
@@ -25,10 +26,11 @@ describe 'Update shop' do
     conjured = Item.new('Conjured', -30, 30)
     brie = Item.new('Aged Brie', -20, 30)
     backstage_pass = Item.new('Backstage pass', -14, 0)
-    sulfuras = Sulfuras.new('Sulfuras', -5, 35)
+    sulfuras = Item.new('Sulfuras', -5, 35)
     conjured.extend(Conjured)
     brie.extend(AgedBrie)
     backstage_pass.extend(BackstagePass)
+    sulfuras.extend(Sulfuras)
     inventory = [conjured, brie, backstage_pass, sulfuras]
     shop = Shop.new(inventory)
     shop.update_quality

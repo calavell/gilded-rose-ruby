@@ -7,16 +7,18 @@ require 'sulfuras'
 describe Sulfuras do
   describe '#update_item' do
     context 'sulfuras, normal sell_in, normal quality' do
-      let(:sulfuras) { Sulfuras.new('Sulfuras', 20, 30) }
+      let(:sulfuras) { Item.new('Sulfuras', 20, 30) }
       it 'will not change the quality or sell_in' do
+        sulfuras.extend(Sulfuras)
         sulfuras.update_item
         expect(sulfuras.to_s).to eq 'Sulfuras, 20, 30'
       end
     end
 
     context 'sulfuras, negative sell_in, normal quality' do
-      let(:sulfuras) { Sulfuras.new('Sulfuras', -20, 30) }
+      let(:sulfuras) { Item.new('Sulfuras', -20, 30) }
       it 'will not change the quality or sell_in' do
+        sulfuras.extend(Sulfuras)
         sulfuras.update_item
         expect(sulfuras.to_s).to eq 'Sulfuras, -20, 30'
       end
